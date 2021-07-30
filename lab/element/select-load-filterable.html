@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <el-select v-model="value" filterable @visible-change="loadData" placeholder="请选择">
+        <el-option-group
+          v-for="group in options"
+          :key="group.label"
+          :label="group.label">
+          <el-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-option-group>
+      </el-select>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          options: [],
+          value: ''
+        };
+      },
+      methods: {
+        loadData(value) {
+          console.log(value);
+          console.log('start loading...');
+          setTimeout(() => {
+            console.log('end loading');
+            this.options = [
+              {
+                label: '热门城市',
+                options: [
+                  {
+                    value: 'Shanghai',
+                    label: '上海'
+                  },
+                  {
+                    value: 'Beijing',
+                    label: '北京'
+                  }
+                ]
+              },
+              {
+                label: '城市名',
+                options: [
+                  {
+                    value: 'Chengdu',
+                    label: '成都'
+                  },
+                  {
+                    value: 'Shenzhen',
+                    label: '深圳'
+                  },
+                  {
+                    value: 'Guangzhou',
+                    label: '广州'
+                  },
+                  {
+                    value: 'Dalian',
+                    label: '大连'
+                  }
+                ]
+              }
+            ];
+          }, 1000);
+        }
+      }
+    });
+  </script>
+</html>

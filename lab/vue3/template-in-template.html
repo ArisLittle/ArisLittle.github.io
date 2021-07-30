@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="visible = !visible">Toggle</button>
+      <p v-if="visible">i can see you</p>
+      <p v-show="visible">show me the code</p>
+      <template v-show="visible">
+        <div>i</div>
+        <div>am</div>
+        <div>in</div>
+        <div>the</div>
+        <div>template</div>
+      </template>
+      <div v-if="id===1">1</div>
+      <div v-else-if="id===2">2</div>
+      <div v-else="">3</div>
+      <button @click="id+=1">Add</button>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            visible: true,
+            id: 1
+          };
+        }
+      });
+      const rootVm = app.mount('#app');
+    </script>
+  </body>
+</html>
