@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click.once="count+=1">Add</button>
+      <div>{{count}}</div>
+      <button @click="onBtnClick">Bind Function</button>
+      <button @click="onBtnClick($event)">Bind Inline Call</button>
+      <button @click="onBtnClick('demo')">Bind Another Call</button>
+      <button @click="onBtnClickWithParam(1,2,$event)">Bind Another Call With Param</button>
+      <button @click="onBtnClickWithParam">Bind Another Call With Param</button>
+      <br>
+      <button @click="myLog, myLog">Log</button>
+      <input type="text" @keyup.page-down="onPageDown">
+      <div style="width: 50px; height: 50px; background:orange;" @click.ctrl="onCtrlClick"></div>
+      <br>
+      <button @click.exact="myLog('only click')">Exact</button>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            count: 0
+          }
+        },
+        methods: {
+          onBtnClick(event) {
+            console.log(event)
+          },
+          onBtnClickWithParam(param, param2, event) {
+            console.log(param, param2, event)
+          },
+          myLog(msg) {
+            console.log(msg)
+          },
+          onPageDown(e) {
+            console.log('page down:', e);
+          },
+          onCtrlClick(e) {
+            console.log(e)
+          }
+        }
+      });
+      const rootVm = app.mount('#app');
+    </script>
+  </body>
+</html>

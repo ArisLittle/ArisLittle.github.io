@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  </head>
+  <body>
+    <div id="app" style="width: 400px">
+      <el-form
+        :model="numberValidateForm"
+        :rules="formRules"
+        ref="numberValidateForm"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <div v-for="(item, index) in numberValidateForm.students" :key="index">
+          <el-form-item v-my-valid.required="{range: item.range}" label="年龄" :prop="'students.' + index + '.age'">
+            <el-input type="age" v-model="item.age" autocomplete="off"></el-input>
+          </el-form-item>
+        </div>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('numberValidateForm')">提交</el-button>
+          <el-button @click="resetForm('numberValidateForm')">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
+  </body>
+  <script>
+    Vue.directive('my-valid', {
+      bind: function (el, binding, vnode) {
+        console.log('el', el);
+        console.log('binding', binding);
+        console.log('vnode', vnode);
+        console.log(vnode.context);
+        console.log(vnode.child.rules);
+        console.log(vnode.context.formRules[vnode.child.prop]);
+
+        const { modifiers = {}, value = {} } = binding;
+        if (!vnode.context.formRules[vnode.child.prop]) {
+          vnode.context.formRules[vnode.child.prop] = [];
+        }
+        if (modifiers.required) {
+          vnode.context.formRules[vnode.child.prop].push({
+            required: true,
+            message: '必须的，老铁'
+          });
+        }
+        if (value.range) {
+          const range = value.range;
+          console.log(range);
+          vnode.context.formRules[vnode.child.prop].push({
+            trigger: 'blur',
+            validator: function (rule, value, callback) {
+              console.log(rule, value, callback);
+              const [min, max] = range;
+              const cur = Number(value);
+              if (cur < min || max < cur) {
+                callback(new Error(`超出范围: [${min},${max}]`));
+              } else {
+                callback();
+              }
+            }
+          });
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          formRules: {},
+          numberValidateForm: {
+            students: [
+              {
+                name: 'Jack',
+                age: 1,
+                range: [1, 10]
+              },
+              {
+                name: 'Tom',
+                age: 2,
+                range: [2, 6]
+              }
+            ]
+          }
+        };
+      },
+      computed: {
+        formObj() {
+          const obj = {};
+          this.students.forEach((item) => {
+            obj[index] = item;
+          });
+          return obj;
+        }
+      },
+      methods: {
+        submitForm(formName) {
+          this.$refs[formName].validate((valid) => {
+            if (valid) {
+              alert('submit!');
+            } else {
+              console.log('error submit!!');
+              return false;
+            }
+          });
+        },
+        resetForm(formName) {
+          this.$refs[formName].resetFields();
+        }
+      }
+    });
+  </script>
+</html>
