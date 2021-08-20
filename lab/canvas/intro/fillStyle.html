@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      const canvas = document.getElementById('canvas');
+      if (!canvas.getContext) {
+        alert('do not support canvas');
+      }
+      const context = canvas.getContext('2d');
+      context.fillStyle = '#ff0000';
+      context.fillRect(10, 10, 50, 50);
+
+      context.fillStyle = 'rgba(0,0,255,0.5)';
+      context.fillRect(30, 30, 50, 50);
+
+      context.clearRect(40, 40, 10, 10);
+    </script>
+  </body>
+</html>
