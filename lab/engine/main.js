@@ -9,6 +9,7 @@ async function initDemo() {
   const urlParams = new URLSearchParams(window.location.search);
   const demoId = urlParams.get('id');
   if (demoId) {
+    document.title = demoId;
     const [html, css, js] = await requestResourceById(demoId);
     htmlInput.value = html;
     cssInput.value = css;
@@ -58,7 +59,6 @@ async function initDemo() {
     const jsRequest = createRequest(getUrlByDemoId(demoId, 'js'));
     return Promise.all([htmlRequest, cssRequest, jsRequest])
       .then((res) => {
-        console.log(res);
         return res;
       })
       .catch((err) => {
