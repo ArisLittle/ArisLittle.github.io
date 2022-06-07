@@ -14,7 +14,7 @@ async function initDemo() {
     htmlInput.value = html;
     cssInput.value = css;
     jsInput.value = js;
-    loadToFrame({ html, css, js })
+    loadToFrame({ html, css, js });
   }
 
   runBtn.onclick = function () {
@@ -38,16 +38,19 @@ async function initDemo() {
   }
 
   function loadHtmlToFrame(code) {
+    if (!code) return;
     targetDocument.body.innerHTML = code;
   }
 
   function loadCssToFrame(code) {
+    if (!code) return;
     const styleElement = document.createElement('style');
     styleElement.innerHTML = code;
     targetDocument.head.append(styleElement);
   }
 
   function loadJsToFrame(code) {
+    if (!code) return;
     const scriptElement = document.createElement('script');
     scriptElement.innerHTML = code;
     targetDocument.head.append(scriptElement);
@@ -69,10 +72,13 @@ async function initDemo() {
   async function createRequest(url) {
     try {
       const res = await fetch(url);
-      const json = await res.text();
-      return json;
+      if (res.status === 200) {
+        const json = await res.text();
+        return json;
+      }
+      return '';
     } catch (error) {
-      console.log(error)      
+      console.log(error);
     }
   }
 
