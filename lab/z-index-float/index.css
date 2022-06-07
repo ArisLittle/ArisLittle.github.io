@@ -1,0 +1,32 @@
+.box-absolute {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: orange;
+  right: 100px;
+  top: 25px;
+}
+.box-float-right {
+  float: right;
+  width: 120px;
+  height: 200px;
+  background: red;
+}
+.box-float-left {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: green;
+}
+.box-static {
+  height: 80px;
+  background: skyblue;
+}
+
+.container {
+  background: yellow;
+  height: 100px;
+}
+.container > div {
+  border: 1px dashed;
+}
