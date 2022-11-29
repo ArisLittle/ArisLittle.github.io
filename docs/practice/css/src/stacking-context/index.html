@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <details>
+    <summary>z-index</summary>
+    <div style="width:500px;">
+      <p>在 CSS 2.1 中，所有的盒模型元素都处于三维坐标系中。除了我们常用的横坐标和纵坐标，盒模型元素还可以沿着“z 轴”层叠摆放，当他们相互覆盖时，z 轴顺序就变得十分重要。</p>
+      <p>使用 z-index 很简单：给它指定一个整数值即可。然而，在层叠比较复杂的 HTML 元素上使用 z-index 时，结果可能让人觉得困惑，甚至不可思议。这是由复杂的元素排布规则导致的。</p>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>不含 z-index 的堆叠：+定位元素</summary>
+    <p>优先级，从低往高：</p>
+    <ol>
+      <li>根元素的背景与边框</li>
+      <li>普通流 (无定位) 里的块元素 (没有 position 或者 position:static;) 按 HTML 中的出现顺序堆叠</li>
+      <li>定位元素按 HTML 中的出现顺序堆叠</li>
+    </ol>
+
+    <p><a href="./level-1.html" target="_blank">Demo-1</a></p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>不含 z-index 的堆叠：+浮动</summary>
+    <p>优先级，从低往高：</p>
+    <ol>
+      <li>根元素的背景和边界</li>
+      <li>普通流 (无定位) 里的块元素 (没有 position 或者 position:static;) 按 HTML 中的出现顺序堆叠</li>
+      <li><strong>浮动块元素</strong></li>
+      <li><strong>常规流中的后代行内元素</strong></li>
+      <li>定位元素按 HTML 中的出现顺序堆叠</li>
+    </ol>
+    <p><a href="./level-2.html" target="_blank">Demo-2</a></p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>堆叠上下文（stacking context）</summary>
+
+    <p>可以参考如下入门文章</p>
+    <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Positioning/Understanding_z_index"
+        target="_blank">Understanding CSS z-index</a>
+    </p>
+  </details>
+
+</body>
+
+</html>

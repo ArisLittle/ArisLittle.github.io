@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .wrapper {
+      display: flex;
+      border: 1px solid;
+      overflow: hidden;
+      resize: horizontal;
+      margin-bottom: 100px;
+    }
+
+    .box {
+      text-align: justify;
+      font-size: 20px;
+    }
+
+    .float {
+      float: right;
+      height: 100%;
+      margin-left: 15px;
+      display: flex;
+      align-items: flex-end;
+      shape-outside: inset(calc(100% - 100px) 0 0);
+    }
+  </style>
+  <div class="wrapper">
+    <div class="box">
+      <div class="float"><img></div>
+      文字内容...
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius enim, consequatur aliquid quam distinctio corporis molestias odit fugiat corrupti eos quibusdam id consequuntur ullam numquam, saepe harum facere? Voluptatem, error!
+    </div>
+  </div>
+
+</body>
+
+</html>

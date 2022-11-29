@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box-absolute {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: orange;
+      right: 100px;
+      top: 25px;
+    }
+
+    .box-float-right {
+      float: right;
+      width: 120px;
+      height: 200px;
+      background: red;
+    }
+
+    .box-float-left {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+
+    .box-static {
+      height: 80px;
+      background: skyblue;
+    }
+
+    .container {
+      background: yellow;
+      height: 100px;
+    }
+
+    .container>div {
+      border: 1px dashed;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box-absolute">1. absolute</div>
+    <div class="box-float-right">2. float right</div>
+    <div class="box-float-left">3. float left</div>
+    <div class="box-static">4. static</div>
+  </div>
+
+  <p>
+    注意，float的默认z-index高于static的，但是static里面的inline元素z-index又高于float的。
+  </p>
+
+  <p>
+    注意，还有一个神奇的现象。如果把box-static的opacity改成0.9（或者其他(0,1)之间的值），static块的z-index会瞬间改变，具有非static类型的效果。在以上的例子中，static由于在最后一个顺位，那么提升之后的z-index，将超过它所有之前非static的。
+  </p>
+  <p>
+    因为 applying a opacity value creates a new stacking context.
+  </p>
+</body>
+
+</html>

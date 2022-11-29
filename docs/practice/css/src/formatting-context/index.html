@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <details>
+    <summary>格式化上下文</summary>
+    <h4>格式化上下文指决定渲染区域内节点的排版、关系和互相作用的渲染规则。</h4>
+
+    <p>常见的格式上下文</p>
+    <style>
+      .context-table tbody tr:nth-child(-n+2) {
+        font-weight: bold;
+        background: skyblue;
+      }
+    </style>
+
+    <table class="context-table">
+      <thead>
+        <th>上下文</th>
+        <th>缩写</th>
+        <th>版本</th>
+        <th>说明</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>块格式化上下文</td>
+          <td>BFC</td>
+          <td>2</td>
+          <td>块级（block）盒子容器</td>
+        </tr>
+        <tr>
+          <td>行内式化上下文</td>
+          <td>IFC</td>
+          <td>2</td>
+          <td>行内（inine）盒子容器</td>
+        </tr>
+        <tr>
+          <td>弹性式化上下文</td>
+          <td>FFC</td>
+          <td>3</td>
+          <td>弹性（flex）盒子容器</td>
+        </tr>
+        <tr>
+          <td>格栅格式化上下文</td>
+          <td>GFC</td>
+          <td>3</td>
+          <td>格栅（grid）盒子容器</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <hr>
+  <details>
+    <summary>块级格式化上下文（Block Formatting Context，BFC）</summary>
+    <p style="width: 620px;">块格式化上下文（Block Formatting Context，BFC）是 Web 页面的可视 CSS
+      渲染的一部分，是块级盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。</p>
+
+    <p>BFC 中所有内容都会参与 BFC，浮动的内容不会从底部溢出。</p>
+
+    <p>下列方式会创建块格式化上下文：</p>
+    <ul>
+      <li>根元素（html）</li>
+      <li>浮动元素</li>
+      <li>绝对定位元素</li>
+      <li>display 值为 flow-root 的元素</li>
+      <li>display 值为 inline-block, table-cell, table ... </li>
+      <li>弹性元素（display 值为 flex 或 inline-flex 元素的直接子元素），如果它们本身既不是 flex、grid 也不是 table 容器</li>
+      <li>网格元素（display 值为 grid 或 inline-grid 元素的直接子元素），如果它们本身既不是 flex、grid 也不是 table 容器</li>
+      <li>overflow 值不为 visible、clip 的块元素</li>
+    </ul>
+
+    <p>格式化上下文影响布局，通常，我们会为定位和清除浮动创建新的 BFC，而不是更改布局，因为它将：</p>
+    <ul>
+      <li>包含内部浮动</li>
+      <li>排除外部浮动</li>
+      <li>阻止外边距重叠</li>
+    </ul>
+  </details>
+
+  <hr>
+  <details>
+    <summary>Demo-1 包含内部浮动</summary>
+    <style>
+      section {
+        height: 150px;
+      }
+
+      .block-box {
+        background-color: rgb(224, 206, 247);
+        border: 5px solid rebeccapurple;
+      }
+
+      .block-box[style] {
+        background-color: aliceblue;
+        border: 5px solid steelblue;
+      }
+
+      .float {
+        float: left;
+        width: 200px;
+        height: 100px;
+        background-color: rgba(255, 255, 255, .5);
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+    <section>
+      <div class="block-box">
+        <div class="float">I am a floated box!</div>
+        <p>I am content inside the container.</p>
+      </div>
+    </section>
+    <section>
+      <div class="block-box" style="overflow:auto">
+        <div class="float">I am a floated box!</div>
+        <p>I am content inside the <code>overflow:auto</code> container.</p>
+      </div>
+    </section>
+    <section>
+      <div class="block-box" style="display:flow-root">
+        <div class="float">I am a floated box!</div>
+        <p>I am content inside the <code>display:flow-root</code> container.</p>
+      </div>
+    </section>
+
+  </details>
+
+  <hr>
+  <details>
+    <summary>Demo-2 排除外部浮动</summary>
+    <style>
+      section {
+        height: 150px;
+      }
+
+      .demo-2-box {
+        background-color: rgb(224, 206, 247);
+        border: 5px solid rebeccapurple;
+      }
+
+      .demo-2-box[style] {
+        background-color: aliceblue;
+        border: 5px solid steelblue;
+      }
+
+      .demo-2-float {
+        float: left;
+        overflow: hidden;
+        /* required by resize:both */
+        resize: both;
+        margin-right: 25px;
+        width: 200px;
+        height: 100px;
+        background-color: rgba(255, 255, 255, .75);
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+    <section>
+      <div class="demo-2-float">Try to resize this outer float</div>
+      <div class="demo-2-box">
+        <p>Normal</p>
+      </div>
+    </section>
+    <section>
+      <div class="demo-2-float">Try to resize this outer float</div>
+      <div class="demo-2-box" style="display:flow-root">
+        <p><code>display:flow-root</code>
+        <p>
+      </div>
+    </section>
+  </details>
+
+  <hr>
+  <details>
+    <summary>Demo-3 外边距重叠</summary>
+    <style>
+      .blue,
+      .red-inner {
+        height: 50px;
+        margin: 10px 0;
+      }
+
+      .blue {
+        background: blue;
+      }
+
+      .red-outer {
+        overflow: hidden;
+        background: red;
+      }
+    </style>
+    <div class="blue"></div>
+    <div class="red-outer">
+      <div class="red-inner">red inner</div>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>参考</summary>
+    <p><a
+        href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context</a>
+    </p>
+    <p>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Intro_to_formatting_contexts" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/Intro_to_formatting_contexts</a>
+    </p>
+  </details>
+
+</body>
+
+</html>

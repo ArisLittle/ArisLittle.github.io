@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .c-2 {
+      margin: 20px;
+      padding: 5px;
+      border: 5px solid orange;
+    }
+
+    .c-2:empty {
+      border-style: dashed;
+      border-color: skyblue;
+    }
+
+    .c-2:last-child::before {
+      content: '这里是content内容'
+    }
+  </style>
+  非空内容
+  <div class="c-2">非空内容</div>
+
+  <hr>
+
+  一个空格
+  <div class="c-2"> </div>
+
+  <hr>
+
+  真的无内容
+  <div class="c-2"></div>
+
+  <hr>
+
+  content内容
+  <div class="c-2"></div>
+</body>
+
+</html>

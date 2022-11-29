@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>url功能符</p>
+  <style>
+    .demo-1 {
+      width: 200px;
+      height: 100px;
+      border: 1px solid;
+      background: url(../card.jpg);
+    }
+  </style>
+  <div class="demo-1"></div>
+
+  <hr>
+  <p>content中使用base64图片</p>
+  <style>
+    a[target="_blank"]:after {
+      content: url(data:image/gif;base64,R0lGODlhBQAFAIABAM0AAAAAACH5BAEAAAEALAAAAAAFAAUAAAIHRIB2eKuOCgA7);
+    }
+  </style>
+  <p>
+    这里有一个<a href="" target="_blank">链接</a>，会打开一个新标签。
+  </p>
+  <p>
+    这里有一个<a href="" target="_self">链接</a>，不会打开一个新标签。
+  </p>
+
+
+</body>
+
+</html>

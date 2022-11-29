@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <details>
+    <summary>基本用法</summary>
+    <pre>
+      <code>
+  input[type="submit"] {
+    cursor: pointer;
+  }
+      </code>
+    </pre>
+    <input type="reset"></input>
+    <input type="submit"></input>
+    <style>
+      input[type="submit"] {
+        cursor: pointer;
+      }
+    </style>
+  </details>
+
+  <hr>
+  <details>
+    <summary>^ 匹配字符开头</summary>
+    <style>
+      a[href^="https:"] {
+        color: green;
+      }
+    </style>
+    <pre>
+      <code>
+  a[href^="https:"] {
+    color: green;
+  }
+      </code>
+    </pre>
+    <ul>
+      <li><a href="https://tencent.com" target="_blank">https://tencent.com</a></li>
+      <li><a href="http://alibaba.com" target="_blank">http://alibaba.com</a></li>
+      <li><a href="https://google.com" target="_blank">https://google.com</a></li>
+    </ul>
+  </details>
+
+  <hr>
+  <details>
+    <summary>$ 匹配字符结尾</summary>
+    <style>
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      img[src$=".jpg"] {
+        border: 2px solid orange;
+      }
+    </style>
+    <pre>
+      <code>
+  img[src$=".jpg"] {
+    border: 2px solid orange;
+  }
+      </code>
+    </pre>
+    <ul>
+      <li><img src="a.png" alt="a.png"></li>
+      <li><img src="b.jpg" alt="b.jpg"></li>
+      <li><img src="c.gif" alt="c.gif"></li>
+    </ul>
+  </details>
+
+  <hr>
+  <details>
+    <summary>其他</summary>
+    <ul style="margin-bottom: 300px;">
+      <li>a[href*="/home/"]</li>
+      <li>a[rel~=next]</li>
+      <li>a[lang|=en]</li>
+    </ul>
+  </details>
+</body>
+
+</html>

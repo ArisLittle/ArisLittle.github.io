@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .m-box {
+      border: 2px solid #000;
+      margin: 20px;
+      width: 100px;
+      height: 50px;
+      background: orange;
+      float: left
+    }
+
+    .outer {
+      background: lightblue;
+      border: 1px solid;
+      margin: 0 50px;
+    }
+
+    .inner {
+      height: 50px;
+      margin: 50px 0;
+      background: darkblue;
+      color: #fff;
+      text-align: center;
+    }
+
+    .scroll-container {
+      height: 200px;
+      width: 30%;
+      margin-right: 20px;
+      display: inline-block;
+      border: 1px solid;
+      overflow: auto;
+    }
+
+    .scroll-content {
+      height: 300px;
+      width: 60%;
+      margin-left: 20px;
+      background: darkblue;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <details>
+    <summary>改变水平可视区域的宽度 Demo-1</summary>
+    <ol>
+      <li>适用于没有设定width/height的普通block水平元素</li>
+      <li>只适用于水平方向的尺寸</li>
+      <li>可以是负值</li>
+    </ol>
+    <span>
+      <input type="range" id="range" min="0" max="100" value="50" step="10">
+    </span>
+    <div class="outer">
+      <div class="inner" id="inner">margin: 50px 0</div>
+    </div>
+
+  </details>
+
+  <hr>
+  <details>
+    <summary>改变水平可视区域的宽度 Demo-2</summary>
+    <h4>一侧定宽的自适应布局</h4>
+    <button id="btn">Toggle</button>
+    <div class="container">
+      <span class="m-box">float: left</span>
+      <p class="shift" id="param">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, corporis sint incidunt molestiae illo in
+        voluptatem numquam nisi officiis hic officia tenetur quaerat harum! Voluptatum quas recusandae modi sapiente
+        molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam amet praesentium impedit iste,
+        voluptatibus ea nostrum inventore nisi, officia quasi accusantium quaerat fugiat exercitationem. Veritatis ad
+        iure
+        nulla tenetur unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis at rerum dolor, molestiae
+        voluptatem repellat obcaecati reprehenderit magni, sint autem soluta, esse voluptas aliquam officia ullam!
+        Perspiciatis mollitia a nulla. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur deserunt
+        inventore neque, unde pariatur distinctio officiis deleniti accusamus error ipsum, quasi harum ratione
+        dignissimos
+        delectus quidem, omnis reiciendis voluptates quia.
+      </p>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>改变垂直占据尺寸 Demo-1</summary>
+    <ol>
+      <li>block/inline-block水平元素均适用</li>
+      <li>与有没有设定width/height无关</li>
+      <li>适用于水平和垂直方向</li>
+    </ol>
+    <span>
+      <input type="range" id="rangeNext" min="0" max="100" value="50" step="10">
+    </span>
+    <div style="height: 180px">
+      <div class="outer">
+        <div class="inner" id="innerNext">margin: 50px 0</div>
+      </div>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>改变垂直占据尺寸 Demo-2</summary>
+    <h4>添加滚动留白</h4>
+    <div>
+      <div class="scroll-container">
+        <div class="scroll-content">测试文本测试文本测试文本测试文本</div>
+      </div>
+      <div class="scroll-container">
+        <div class="scroll-content" style="margin-top: 50px; margin-bottom: 50px">测试文本测试文本测试文本测试文本</div>
+      </div>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>margin: auto</summary>
+    <p>利用流动性，自适应对齐。</p>
+    <style>
+      .auto-container {
+        background: skyblue;
+        overflow: hidden;
+      }
+
+      .auto-box {
+        border: 2px solid #000;
+        margin: 20px;
+        width: 100px;
+        height: 50px;
+        background: orange;
+      }
+    </style>
+    <div class="auto-container">
+      <div class="auto-box"></div>
+      <div class="auto-box" style="margin-left: auto; margin-right: auto;"></div>
+      <div class="auto-box" style="margin-left: auto"></div>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>margin 百分比</summary>
+    <p>无论水平还是垂直，均是根据宽度计算</p>
+    <style>
+      .percent-box {
+        background-color: olive;
+        width: 300px;
+        height: 500px;
+        overflow: hidden;
+      }
+
+      .percent-box>div {
+        margin-top: 10%;
+        margin-left: 10%;
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+      }
+    </style>
+    <div class="percent-box">
+      <div></div>
+    </div>
+  </details>
+
+  <hr>
+
+  <details>
+    <summary>margin 重叠</summary>
+    <h4>margin重叠通常特性</h4>
+    <ol>
+      <li>block水平元素（不包括float和absolute元素）</li>
+      <li>不考虑 <a href="./writing-mode.html" target="_blank">writing-mode</a>，只发生在垂直方向（margin-top/margin-bottom）</li>
+      
+    </ol>
+
+    <h4>margin重叠3种情景</h4>
+    <ol>
+      <li>相邻的兄弟元素</li>
+      <li>父级和第一个/最后一个子元素</li>
+      <li>空的block元素</li>
+    </ol>
+  </details>
+
+  <hr>
+  <details>
+    <summary>margin 重叠: 相邻的兄弟元素</summary>
+    <style>
+      .param {
+        line-height: 2rem;
+        margin: 20px;
+        background: skyblue;
+      }
+    </style>
+    <p class="param">A</p>
+    <p class="param">B</p>
+    <p class="param">C</p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>margin 重叠: 父级和第一个/最后一个子元素</summary>
+    <style>
+      .margin-inner {
+        line-height: 2rem;
+        margin: 20px;
+        background: skyblue;
+      }
+
+      .margin-outer {
+        background: orange;
+        /* display: inline-block; */
+        /* width: 30%; */
+
+        /* overflow: hidden; */
+        /* border-top: 1px solid; */
+        /* padding-top: 1px; */
+      }
+    </style>
+    <div class="margin-outer" style="margin-top: 50px">
+      <div class="margin-inner">inner</div>
+    </div>
+    <div class="margin-outer">
+      <div class="margin-inner" style="margin-top: 50px">inner</div>
+    </div>
+    <div class="margin-outer" style="margin-top: 50px">
+      <div class="margin-inner" style="margin-top: 50px">inner</div>
+    </div>
+
+    <h4>父子margin-top重叠条件</h4>
+    <ol>
+      <li>父元素非块状格式化上下文</li>
+      <li>父元素没有border-top设置</li>
+      <li>父元素没有padding-top设置</li>
+      <li>父元素和第一个子元素直接没有inline元素分隔</li>
+    </ol>
+
+    <h4>父子margin-bottom重叠条件</h4>
+    <ol>
+      <li>父元素非块状格式化上下文</li>
+      <li>父元素没有border-bottom设置</li>
+      <li>父元素没有padding-bottom设置</li>
+      <li>父元素和最后一个子元素直接没有inline元素分隔</li>
+      <li>父元素没有height, min-height, max-height限制</li>
+    </ol>
+  </details>
+
+  <hr>
+  <details>
+    <summary>margin 重叠: 空的block元素</summary>
+    <div class="margin-outer" style="overflow: hidden">
+      <div class="margin-inner" style="margin: 50px"></div>
+    </div>
+    <h4>空的block元素margin重叠条件</h4>
+    <ol>
+      <li>元素没有border设置</li>
+      <li>元素没有padding设置</li>
+      <li>元素里面没有inline元素</li>
+      <li>没有height或者min-height</li>
+    </ol>
+  </details>
+
+  <hr>
+  <details>
+    <summary>再看margin重叠</summary>
+    <h4>margin重叠规则</h4>
+    <ol>
+      <li>正正取最大</li>
+      <li>正负值相加</li>
+      <li>负负取最负</li>
+    </ol>
+
+    <h4>为什么有设计margin重叠？</h4>
+    <ol style="margin-bottom: 300px;">
+      <li>连续段落或列表之类，如果没有margin重叠，首尾前后的间距会和其他兄弟标签1:2的关系。排版不自然</li>
+      <li>空的p标签，不影响原来的排版</li>
+      <li>让单个block元素排版更健壮（上下margin都使用）</li>
+      <li>嵌套或直接放入任何裸div，不会影响原来的布局</li>
+    </ol>
+  </details>
+
+  <script>
+    range.addEventListener('change', (e) => {
+      const marginLeftRight = e.target.value - 50
+      const margin = `50px ${marginLeftRight}px`
+      inner.innerText = `margin: ${margin}`
+      inner.style.margin = margin
+    })
+
+    rangeNext.addEventListener('change', (e) => {
+      const marginTopBottom = e.target.value - 50
+      const margin = `${marginTopBottom}px 0`
+      innerNext.innerText = `margin: ${margin}`
+      innerNext.style.margin = margin
+    })
+
+    btn.addEventListener('click', () => {
+      param.style.marginLeft = param.style.marginLeft ? '' : '144px'
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <details>
+    <summary>在写CSS之前</summary>
+    <p><a href="./history/history.html" target="_blank">HTML 与 CSS</a></p>
+    <p>良好的HTML结构是CSS代码可维护的基础。</p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>盒模型：<span style="color:indigo">1.黑铁</span></summary>
+    <h4>从外到内</h4>
+    <ol>
+      <li><a href="./box-sizing/index.html">box-sizing</a></li>
+      <li><a href="./margin/index.html">margin</a></li>
+      <li><a href="./border/index.html">border</a></li>
+      <li><a href="./padding/index.html">padding</a></li>
+    </ol>
+
+    <p>一个简单的问题：<a href="./box-sizing/height-percent.html" target="_blank">height: 100%</a></p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>盒模型：<span style="color:olive">2.青铜</span></summary>
+    <h4>进一步了解</h4>
+    <ol>
+      <li><a href="./formatting-context/index.html" target="_blank">格式化上下文（formatting context）</a></li>
+      <li><a href="./document-flow/index.html" target="_blank">文档流（document flow）</a></li>
+      <li><a href="./stacking-context/index.html" target="_blank">堆叠上下文（stacking context）</a></li>
+    </ol>
+  </details>
+
+  <hr>
+  <details>
+    <summary>盒模型：<span style="color:silver">3.白银</span></summary>
+    <h4>行内与内容</h4>
+    <ol>
+      <li><a href="./vertical-align/index.html" target="_blank">vertical-align</a></li>
+      <li><a href="./line-height/index.html" target="_blank">line-height</a></li>
+      <li><a href="./content/index.html" target="_blank">replaced content</a></li>
+    </ol>
+  </details>
+
+  <hr>
+  <details>
+    <summary>盒模型：<span style="color:gold">4.黄金</span></summary>
+    <h4>更深的一层</h4>
+    <ol>
+      <li>
+        视觉格式化上下文（visual formatting model）
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Visual_formatting_model" target="_blank">MDN 文档</a>
+        <p>
+          <ul>
+            <li>The role of the viewport</li>
+            <li>Box generation</li>
+            <li>Positioning schemes and in-flow and out-of-flow elements</li>
+            <li>Formatting contexts and the display property</li>
+            <li>...</li>
+          </ul>
+        </p>
+      </li>
+      <li>改变文档流的方向</li>
+    </ol>
+
+    <p>There is always a deeper level...</p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>选择器</summary>
+    <ol>
+      <li><a href="./selector/attr.html" target="_blank">属性选择器</a></li>
+      <li><a href="./selector/brother.html" target="_blank">兄弟选择器</a></li>
+      <li><a href="./selector/pseudo-element.html" target="_blank">伪元素（Pseudo Elements）</a></li>
+      <li><a href="./selector/pseudo-class.html" target="_blank">伪类（Pseudo Classes）</a></li>
+      <ul>
+        <li>伪元素用双冒号，伪类用单冒号。</li>
+        <li>但由于在W3C对此定规范的老浏览器，实现上没有做区分，所以对于伪元素，也支持单冒号。</li>
+        <li>参考<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">MDN的解释</a>。</li>
+      </ul>
+      </li>
+    </ol>
+  </details>
+
+  <hr>
+  <details>
+    <summary>工具与调试</summary>
+    <ul>
+      <li>:hov</li>
+      <li>.cls</li>
+      <li>computed</li>
+      <li>getComputedStyle</li>
+      <li>CSS验证 <a href="https://jigsaw.w3.org/css-validator/" target="_blank">https://jigsaw.w3.org/css-validator/</a>
+      </li>
+      <li>style lint</li>
+    </ul>
+  </details>
+
+  <hr>
+  <details>
+    <summary>更多基础</summary>
+    <ul style="margin-bottom: 300px">
+      <li>@规则</li>
+      <li>属性（简写，关键字，规范语法）</li>
+      <li>优先级（cascade，hierachy）</li>
+      <li>显示与定位（display, position）</li>
+      <li>颜色（color）</li>
+      <li>字体与文本排版（font，word-break，writing-mode）</li>
+      <li>背景（background）</li>
+      <li>阴影（shadow）</li>
+      <li>flex, grid</li>
+      <li>table</li>
+      <li>响应式Web设计（responsive, media query）</li>
+      <li>变换、过渡与动效（transform, transition, animation）</li>
+      <li>...</li>
+    </ul>
+  </details>
+</body>
+
+</html>

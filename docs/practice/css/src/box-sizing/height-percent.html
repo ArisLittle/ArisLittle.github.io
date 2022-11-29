@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <style id="demo">
+    /* .nth-child-table > tr:nth-child(2n+1) {background:orange;} */
+  </style>
+</head>
+
+<body>
+  <details>
+    <summary>height</summary>
+    <p>关于 height 100%</p>
+    <style>
+      .height-box {
+        margin: 40px;
+        height: 160px;
+        padding: 30px;
+        box-sizing: border-box;
+        background-color: #beceeb;
+      }
+
+      .child {
+        height: 100%;
+        background-color: #cd0000;
+      }
+    </style>
+    <div class="height-box">
+      <div class="child"></div>
+    </div>
+    <div class="height-box" style="position: relative">
+      <div class="child" style="width: 100%; position: absolute"></div>
+    </div>
+  </details>
+
+</body>
+
+</html>

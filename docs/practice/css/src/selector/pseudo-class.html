@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <style id="demo">
+    /* .nth-child-table > tr:nth-child(2n+1) {background:orange;} */
+  </style>
+</head>
+
+<body>
+  <details>
+    <summary>:focus</summary>
+    <style>
+      .fo {
+        transition: .3s;
+        outline: none;
+        border: 1px solid;
+      }
+      .fo:focus {
+        border-color: skyblue;
+        box-shadow: 0 0 2px 2px skyblue;
+      }
+    </style>
+    <input type="text" class="fo">
+    <button class="fo">Test</button>
+  </details>
+  
+  <hr>
+  <details>
+    <summary>:target</summary>
+    <style>
+      .sec:target {
+        color: orange;
+      }
+
+      .sec:target~p {
+        color: darkorange;
+      }
+    </style>
+    <div>
+      <a href="#chapter-1">第一章</a>
+      <a href="#chapter-2">第二章</a>
+      <div>
+        <h3 id="chapter-1" class="sec">第一章</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex quis dolor illum sed esse cumque beatae
+          asperiores repellat! Vel a vitae qui expedita et at minima, ipsum quam sint?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, dolores voluptatem nemo blanditiis error
+          eaque aperiam laudantium adipisci molestiae, cupiditate sint, saepe nostrum reiciendis architecto qui expedita
+          ipsa dolorum ullam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit provident eos, veritatis ut odit nulla
+          distinctio exercitationem in sequi aut sint quam fuga dolores nostrum! Quo corporis repellat at consequuntur!
+        </p>
+      </div>
+
+      <div>
+        <h3 id="chapter-2" class="sec">第二章</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex quis dolor illum sed esse cumque beatae
+          asperiores repellat! Vel a vitae qui expedita et at minima, ipsum quam sint?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione, dolores voluptatem nemo blanditiis error
+          eaque aperiam laudantium adipisci molestiae, cupiditate sint, saepe nostrum reiciendis architecto qui expedita
+          ipsa dolorum ullam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit provident eos, veritatis ut odit nulla
+          distinctio exercitationem in sequi aut sint quam fuga dolores nostrum! Quo corporis repellat at consequuntur!
+        </p>
+      </div>
+    </div>
+  </details>
+
+  <hr>
+
+  <details>
+    <summary>:nth-child</summary>
+    <ul>
+      <li>:nth-child(odd)</li>
+      <li>:nth-child(even)</li>
+      <li>:nth-child(3)</li>
+      <li>:nth-child(3n + 2)</li>
+      <li>:nth-child(-n + 3)</li>
+
+    </ul>
+    <p>一些相似的拓展</p>
+    <ul>
+      <li>:nth-last-child(2n + 1)</li>
+      <li>:nth-of-type(2n + 1)</li>
+      <li>:nth-last-of-type(2n + 1)</li>
+      <li>:first-child</li>
+      <li>:last-child</li>
+    </ul>
+    <p>n被依次替换成0, 1, 2, 3, ...</p>
+    <p>注意first-child和first-letter的区别，一个是伪类，一个是伪元素。</p>
+
+    <hr>
+    <h4>Demo-1</h4>
+    <div>
+      <style>
+        .n-form>input {
+          width: 50px;
+        }
+      </style>
+      <p>:nth-child(Xn + Y)</p>
+      <form class="n-form">
+        <label for="x">X</label>
+        <input id="x" type="number">
+        <label for="y">Y</label>
+        <input id="y" type="number">
+        <label for="table-row">Demo行数</label>
+        <input id="table-row" type="number" value="12">
+      </form>
+      <p>
+      <div id="rule" style="position: absolute; left: 150px;"></div>
+      <table class="nth-child-table" id="nth-child-table">
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>2</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>3</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>5</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>6</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>7</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>8</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>9</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>11</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>12</td>
+          <td>12</td>
+        </tr>
+      </table>
+      </p>
+      <script>
+        x.addEventListener('change', (e) => {
+          updatePseudoClass()
+        })
+        y.addEventListener('change', (e) => {
+          updatePseudoClass()
+        })
+        document.querySelector('#table-row').addEventListener('change', (e) => {
+          const value = parseInt(e.target.value)
+          const table = document.querySelector('#nth-child-table')
+          // table.innerHTML = ''
+          let temp = ''
+          for (let i = 0; i < value; i++) {
+            const tr = `<tr><td>${i + 1}</td><td>${i + 1}</td><td>${i + 1}</td></tr>`
+            temp += tr
+          }
+          table.innerHTML = temp
+        })
+        function updatePseudoClass() {
+          let suffix = ''
+          const prefix = x.value == '0' ? '' : `${x.value}n`
+          const last = parseInt(y.value)
+          if (last > 0) {
+            suffix = prefix === '' ? last : `+${last}`
+          } else if (last < 0) {
+            suffix = last
+          } else {
+            suffix = ''
+          }
+          const inner = `${prefix}${suffix}`.trim()
+          const selector = `nth-child(${inner})`
+          // console.log(selector)
+          const rule = `.nth-child-table tr:${selector} {background:orange;}`
+          console.log(rule)
+          document.querySelector('#rule').innerText = `${selector} { background: orange }`
+          if (document.styleSheets['demo'].rules.length) {
+            document.styleSheets['demo'].deleteRule(0)
+          }
+          document.styleSheets['demo'].insertRule(rule)
+        }
+      </script>
+    </div>
+
+    <hr>
+    <h4>Demo-2</h4>
+    <style>
+      .multi-row-table tr:first-child:last-child {
+        background: red;
+      }
+
+      .multi-row-table tr:nth-child(n+4):nth-child(-n+6) {
+        background: orange;
+      }
+
+      .multi-row-table tr:nth-last-child(10):first-child,
+      .multi-row-table tr:nth-last-child(10):first-child~tr {
+        background: skyblue;
+      }
+    </style>
+    <label for="table-row-multi">Demo行数</label>
+    <input id="table-row-multi" type="number">
+    <p>
+    <table id="nth-child-table-2" class="multi-row-table"></table>
+    </p>
+    <script>
+      document.querySelector('#table-row-multi').addEventListener('change', (e) => {
+        const value = parseInt(e.target.value)
+        const table = document.querySelector('#nth-child-table-2')
+        let temp = ''
+        for (let i = 0; i < value; i++) {
+          const tr = `<tr><td>${i + 1}</td><td>${i + 1}</td><td>${i + 1}</td></tr>`
+          temp += tr
+        }
+        table.innerHTML = temp
+      })
+    </script>
+
+  </details>
+
+  <hr>
+
+  <details>
+    <summary>更多常用</summary>
+    <p>a, button</p>
+    <ul>
+      <li>:link</li>
+      <li>:visited</li>
+      <li>:hover</li>
+      <li>:focus</li>
+      <li>:active</li>
+    </ul>
+    <p>表单常用</p>
+    <style>
+      .two-two li {
+        color: blue;
+      }
+
+      .two-two li:nth-child(4n+1),
+      .two-two li:nth-child(4n+1)+li {
+        color: orange;
+      }
+    </style>
+    <ul id="two-list">
+      <li>:required</li>
+      <li>:optional</li>
+      <li>:valid</li>
+      <li>:invalid</li>
+      <li>:in-range</li>
+      <li>:out-of-range</li>
+      <li>:read-only</li>
+      <li>:read-write</li>
+    </ul>
+
+    <p>
+      有一点对称关系
+    </p>
+    <p>:target, :not, :first-child, :last-child</p>
+
+    <p>...</p>
+
+    <button id="use-two">现学现用</button>
+    <script>
+      document.querySelector('#use-two').addEventListener('click', (e) => {
+        document.querySelector('#two-list').classList.add('two-two');
+      })
+    </script>
+
+    <p style="margin-bottom: 300px">
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes</a>
+    </p>
+  </details>
+</body>
+
+</html>

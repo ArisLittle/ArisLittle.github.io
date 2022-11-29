@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .active .li-css {
+      color: blue;
+    }
+
+    .active .li-html {
+      color: lightblue
+    }
+  </style>
+</head>
+
+<body>
+  <details>
+    <summary>历史轨迹</summary>
+    <p>HTML（HyperText Markup Language） 与 CSS（Cascading Style Sheets）</p>
+    <ul id="history-list">
+      <li class="li-html">1990年: Tim Berners-Lee 发明 HTML</li>
+      <li class="li-html">1994年: Tim Berners-Lee 为了 Web 发展而成立了 W3C</li>
+      <li class="li-css">1996年: CSS1 成为 W3C 推荐标准（font, color, margin ...）</li>
+      <li class="li-html">1996年: W3C 接管了 HTML 的标准化工作，并在 1 年后发布了 HTML 3.2 推荐标准</li>
+      <li class="li-css">1998年: CSS2 成为 W3C 推荐标准（float, position, >, ~, +, * ...）</li>
+      <li class="li-html">1999年: HTML 4.0 发布，并在 2000 年成为 ISO (en-US) 标准</li>
+      <li class="li-css">2002年: CSS2 Revision 1 在 W3C 发布（修正，清理）</li>
+      <li class="li-html">2009年: W3C 完全放弃 XHTML，正式接纳 WHATWG 指定的新标准，就是后来的 HTML5</li>
+      <li class="li-css">2011年: CSS2.1 成为 W3C 推荐标准（距离 CSS3 启动已经10多年）</li>
+    </ul>
+  </details>
+  <script>
+    const historyList = document.querySelector('#history-list')
+    historyList.addEventListener('click', function () {
+      historyList.classList.add('active')
+    })
+  </script>
+
+  <hr>
+
+  <details>
+    <p>之前</p>
+    <pre>
+      <code>
+        &lt;font face=geneva,arial,helvetica size=2&gt;Demo&lt;/font&gt;
+      </code>
+    </pre>
+
+    <p>之后</p>
+    <pre>
+      <code>
+        &lt;div class="box"&gt;Demo&lt;/div&gt;
+  
+        .box {
+          font-family: geneva, arial, helvetica;
+          font-size: 12px;
+        }
+      </code>
+    </pre>
+
+    <summary>HTML初期的样式与标签混乱</summary>
+    <p>
+      当 Web 变得一团糟之际，CSS 作为解决方案问世了。
+    </p>
+    <p>CSS 的初衷是把 HTML 混在一起的表现性标记提取出来，使其自成体系，达到<strong>结构与表现分离</strong>。</p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>结构化、富含语义的 HTML</summary>
+    <p>文档的基础语义应该永远不打折扣。</p>
+    <ul>
+      <li>h1, h2</li>
+      <li>p, ul, ol, li, dl, dt</li>
+      <li>strong, em</li>
+      <li>blockquote, cite</li>
+      <li>pre, code, time</li>
+      <li>figure, figcaption</li>
+      <li>fieldset, legend, label</li>
+      <li>thead, tbody, tfoot</li>
+      <li>section, header, footer, nav, article, nav, manu, aside, main</li>
+    </ul>
+  </details>
+
+  <hr>
+  <details>
+    <summary>没有真正的 CSS3 规范</summary>
+    <p>CSS3 包含了一系列级别独立的模块。我们提的 CSS3，是指所有足够新的 CSS 规范模块。</p>
+    <ul>
+      <li>
+        <h4>如果对之前 CSS 概念的改进，就从 level 3 开始命名</h4>
+        <ul>
+          <li class="suffix">CSS Colors Level 3</li>
+          <li class="suffix">CSS Backgrounds and Borders Level 3</li>
+          <li class="suffix">CSS Selectors Level 4</li>
+        </ul>
+      </li>
+      <li>
+        <h4>如果是全新的模块，从 level 1 命名</h4>
+        <ul>
+          <li class="suffix">CSS Grid Layout Level 1</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p><a href="https://www.w3.org/Style/CSS/" target="_blank">Cascading Style Sheets home page</a></p>
+
+  </details>
+
+  <hr>
+  <details>
+    <summary>渐进增强</summary>
+    <p>HTML</p>
+    <form action="">
+      <p>
+        <label for="week">week</label>
+        <input id="week" type="week">
+      </p>
+    </form>
+    <p>CSS</p>
+    <pre>
+      .box {
+        background-color: #000;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    </pre>
+  </details>
+
+  <hr>
+  <details>
+    <summary>厂商前缀</summary>
+    <pre>
+      .box {
+        -webkit-transform: translate(0, 10px);
+        -moz-transform: translate(0, 10px);
+        -ms-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+      }
+    </pre>
+
+    <ul>
+      <li>-webkit-: Safari, Chrome, Opera</li>
+      <li>-moz-: Firefox</li>
+      <li>-ms-: IE</li>
+    </ul>
+
+    <p>区分浏览器引擎（渲染引擎 + 布局引擎），和JavaScript引擎。</p>
+    <table style="margin-bottom: 300px;">
+      <thead>
+        <tr>
+          <th>浏览器</th>
+          <th>渲染内核（渲染引擎 + 布局引擎）</th>
+          <th>JS引擎</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>IE/老Edge</td>
+          <td>Trident(&lt;=IE10); EdgeHTML</td>
+          <td>JScript(&lt;IE9); Chakra(IE9+即老Edge)</td>
+        <tr>
+          <td>Safari</td>
+          <td>Webkit/Webkit2</td>
+          <td>JavaScriptCore/Nitro(4+)</td>
+        </tr>
+        <tr>
+          <td>Chrome</td>
+          <td>Chromium(Webkit); Blink</td>
+          <td>V8</td>
+        </tr>
+        <tr>
+          <td>Firefox</td>
+          <td>Gecko</td>
+          <td>SpiderMonkey(&lt;3.0); TraceMonkey(&lt;3.6); JaegerMonkey(4.0+)</td>
+        </tr>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+</body>
+
+</html>

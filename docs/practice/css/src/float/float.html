@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      padding: 10px;
+      background: orange;
+    }
+
+    .inner {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background: olive;
+    }
+
+    .clear::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span class="inner"></span>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, ducimus consequatur blanditiis sunt ad reiciendis
+    natus, dolores repellendus sapiente tenetur veritatis quibusdam aperiam. Fugiat ab, vitae aliquid perspiciatis
+    adipisci nihil!</p>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <style id="demo">
+    /* .nth-child-table > tr:nth-child(2n+1) {background:orange;} */
+  </style>
+</head>
+
+<body>
+  <details>
+    <summary>box-sizing 基础</summary>
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        border: 10px solid red;
+        background: yellow;
+        padding: 10px;
+        margin: 10px;
+        /* border-color: rgba(255,255,255,0.7); */
+      }
+    </style>
+    <pre>
+      width: 200px;
+      height: 100px;
+      margin: 10px;
+      border-width: 10px;
+      padding: 10px;
+    </pre>
+    <div class="box">content-box</div>
+    <div class="box" style="box-sizing: border-box;">border-box</div>
+    <ul>
+      <li>content-box（标准盒模型）: content 的宽高</li>
+      <li>border-box（怪异盒模型）: content + padding + border 的宽高</li>
+    </ul>
+
+    <!-- <p>注意，background默认是会延伸到border后面去的。</p> -->
+    <h4>以哪个为box（content或border）, 宽高就定界到哪个box。</h4>
+  </details>
+
+  <hr>
+  <details>
+    <summary>怪异（quirks）盒模型</summary>
+    <p>在早期IE中，若HTML文档缺失
+      &lt;!doctype html&gt;声明则会触发怪异盒模型。
+    </p>
+    <p>一个IE7的例子</p>
+    <p><img src="../img/ie-7-box-sizing.PNG" alt="box-sizing"></p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>box-sizing 可选值</summary>
+    <pre style="font-size: 20px;">
+      <strong>.box1 { box-sizing: content-box; }</strong> /* 默认值 */ 
+      .box2 { box-sizing: padding-box; } /* Firefox 曾经支持 */ 
+      <strong>.box3 { box-sizing: border-box; }</strong> /* IE8以上全线支持 */ 
+      .box4 { box-sizing: margin-box; } /* 从未支持过 */
+    </pre>
+  </details>
+
+</body>
+
+</html>

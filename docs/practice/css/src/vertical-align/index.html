@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <details>
+    <summary>baseline的简单理解</summary>
+    <p><img src="./baseline-1.png" alt=""></p>
+    <p><img src="./baseline-2.png" alt=""></p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>底部空白与幽灵节点</summary>
+    <div style="background: orange;"><img src="../card.jpg" alt=""></div>
+
+    <p>
+      关于幽灵节点的另一个例子 <a href="./empty.html">Demo-1</a>
+    </p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>baseline的深入</summary>
+    <p><img src="./font-line.jpg" alt=""></p>
+
+    <p>ex 是CSS中的一个长度单位：x-height，小写字母x的高度。<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">https://developer.mozilla.org/en-US/docs/Web/CSS/length</a></p>
+    
+
+    <p>vertical-align 可选值</p>
+    <ul>
+      <li><strong>baseline（默认值）</strong></li>
+      <li>sub</li>
+      <li>super</li>
+      <li>text-top</li>
+      <li>text-bottom</li>
+      <li>middle</li>
+      <li>top</li>
+      <li>bottom</li>
+      <li>也可以取 长度、百分比、全局常用关键字（inherit，initial， ...）</li>
+    </ul>
+
+
+    <div style="background: orange">
+      <div style="display:inline-block;width:100px;height:100px;word-wrap:break-word;
+  background-color: hsl(2, 86%, 58%);color:#fff;">
+        <span>
+          MOMOMOMOMOMOMOOMOM
+        </span>
+      </div>
+      <span style="color:#fff">MOMO</span>
+    </div>
+
+  </details>
+
+  <hr>
+  <details>
+    <summary>vertical-align: middle 可能不是真正居中</summary>
+    <p><img src="./middle.png" alt=""></p>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align">https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align</a></p>
+
+    <p>中线：<strong>横过小写英文字母x的中间的线</strong></p>
+
+    <p>
+      <style>
+        .m-box {
+          background: orange;
+          font-size: 100px;
+          border: 1px solid;
+          position: relative;
+        }
+        .m-box::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          top: 50%;
+          border-bottom: 1px dashed yellow;
+        }
+        .m-img {
+          width: 50px;
+          vertical-align: middle;
+        }
+      </style>
+      <div class="m-box"><img class="m-img" src="../card.jpg" alt="">x 中间</div>
+    </p>
+
+  </details>
+
+  <hr>
+  <details>
+    <summary>参考</summary>
+    <ul>
+      <li><a href="https://zhuanlan.zhihu.com/p/29728703">https://zhuanlan.zhihu.com/p/29728703</a></li>
+      <li><a href="https://zhuanlan.zhihu.com/p/352965852">https://zhuanlan.zhihu.com/p/352965852</a></li>
+      <li><a
+          href="https://www.zhihu.com/search?type=content&q=css%20baseline">https://www.zhihu.com/search?type=content&q=css%20baseline</a>
+      </li>
+      <li><a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align">https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align</a>
+      </li>
+      <li><a
+          href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-height">https://developer.mozilla.org/zh-CN/docs/Web/CSS/line-height</a>
+      </li>
+    </ul>
+  </details>
+
+</body>
+
+</html>

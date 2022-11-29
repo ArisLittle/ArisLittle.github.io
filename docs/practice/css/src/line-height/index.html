@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <details>
+    <summary>基线与基线之间的距离</summary>
+
+    <style>
+      .line-height-container {
+        width: 265px;
+        font-size: 30px;
+        position: relative;
+        line-height: 50px;
+      }
+      .line-height-container::before {
+        content: '';
+        position: absolute;
+        border: 1px solid red;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        height: 50px;
+        top: 37px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    </style>
+    <div class="line-height-container">西安软件研发中心x西安软件研发中心x</div>
+
+    <p>决定普通行内盒子的高度</p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>纯内联元素的可视高度完全由 line-height 决定</summary>
+    <p>非替换元素的纯内联元素</p>
+    <style>
+      .line-height-span {
+        margin: 10px;
+        border: 10px solid;
+        padding: 10px;
+      }
+    </style>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste officiis illum veritatis? Adipisci aspernatur repudiandae a omnis sit, excepturi, eius odit veritatis non quisquam aut aliquam architecto iusto aliquid placeat! <span class="line-height-span">Demo</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, molestias suscipit! A odit sunt aperiam iure officia quae possimus placeat! Hic cumque, libero voluptatum exercitationem officiis eligendi laboriosam esse laborum.
+    </p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>line-height 取值</summary>
+    <ul>
+      <li>数字，比如 1.5</li>
+      <li>长度，比如 1.5em，1.5rem</li>
+      <li>百分比，比如 150%</li>
+      <li>关键字：normal（大概1.2，与font-family有关）</li>
+    </ul>
+
+    <p>下面三者有什么区别？</p>
+    <ul>
+      <li>line-height: 150%</li>
+      <li>line-height: 1.5em</li>
+      <li>line-height: 1.5</li>
+    </ul>
+  </details>
+
+  <hr>
+  <details>
+    <summary>line-height 的数字值</summary>
+    <p>大多数情况下，推荐使用数字设置line-height，这不会在继承时产生不确定的结果。</p>
+
+    <style>
+      .green {
+        line-height: 1.5;
+        border: solid limegreen;
+      }
+
+      .red {
+        line-height: 1.5em;
+        border: solid red;
+      }
+
+      .blue {
+        line-height: 150%;
+        border: solid blue;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .line-height-box {
+        width: 20em;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 15px;
+      }
+    </style>
+    <div class="line-height-box red">
+      <h1>Avoid unexpected results by using unitless line-height.</h1>
+      父级 line-height: 1.5em
+      <p>子元素直接继承 1.5em * 15px = 22.5px</p>
+    </div>
+
+    <div class="line-height-box blue">
+      <h1>Avoid unexpected results by using unitless line-height.</h1>
+      父级 line-height: 150%
+      <p>子元素直接继承 150% * 15px = 22.5px</p>
+    </div>
+
+    <div class="line-height-box green">
+      <h1>Avoid unexpected results by using unitless line-height.</h1>
+      父级 line-height: 1.5
+      <p>计算得到 1.5 * 30px = 45px</p>
+    </div>
+
+    <!-- The first <h1> line-height is calculated from its own font-size   (30px × 1.1) = 33px  -->
+    <!-- The second <h1> line-height results from the red div's font-size  (15px × 1.1) = 16.5px,  probably not what you want -->
+
+
+
+    <ul>
+      <li>line-height: 1.5em 或 150% 是在把 line-height 在所设置的地方先计算出来，然后传递给子元素。<strong>子元素继承的是一个固定的值。</strong></li>
+      <li>line-height: 1.5 是在把 line-height 的 1.5
+        继承下来，然后在当前元素再计算具体的值。<strong>子元素继承的是一个比例，然后可以根据自身具体font-size值再计算。</strong></li>
+    </ul>
+
+    <hr>
+
+
+  </details>
+
+</body>
+
+</html>

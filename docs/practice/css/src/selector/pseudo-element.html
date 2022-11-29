@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <details>
+    <summary>::before</summary>
+    <style>
+      .warning::before {
+        content: '! ';
+        font-size: 2em;
+        color: orange;
+        font-family: Georgia, Times, serif;
+      }
+    </style>
+    <p class="warning">
+      <span>真香警告</span>
+    </p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>::after</summary>
+    <style>
+      .box {
+        padding: 10px;
+        background: orange;
+      }
+
+      .inner {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 0 10px;
+        background: olive;
+      }
+
+      .clear::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    </style>
+    <div class="box">
+      没有清浮动
+      <span class="inner"></span>
+      <div></div>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, ducimus consequatur blanditiis sunt ad reiciendis
+      natus, dolores repellendus sapiente tenetur veritatis quibusdam aperiam. Fugiat ab, vitae aliquid perspiciatis
+      adipisci nihil!</p>
+    
+    <div class="box clear">
+      使用::after清浮动
+      <span class="inner"></span>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, ducimus consequatur blanditiis sunt ad reiciendis
+      natus, dolores repellendus sapiente tenetur veritatis quibusdam aperiam. Fugiat ab, vitae aliquid perspiciatis
+      adipisci nihil!</p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>::first-letter</summary>
+    <style>
+      .chapter p::first-letter {
+        font-size: 3em;
+      }
+    </style>
+    <section class="chapter">
+      <p>道可道，非常道。</p>
+    </section>
+
+    <style>
+      .demo::first-letter {
+        color: darkblue;
+      }
+      p.demo {
+        color: red;
+      }
+      #my-param {
+        color: orange;
+      }
+    </style>
+    <p id="my-param" class="demo">注意这里伪元素的样式优先级。</p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>::first-line</summary>
+    <style>
+      .chapter-1 p::first-line {
+        font-size: 3em;
+        text-transform: uppercase;
+      }
+    </style>
+    <section class="chapter-1">
+      <p>Have you seen my Childhood? I'm searching for the world that I come from. Because I've been looking around, in the lost and found of my heart...</p>
+    </section>
+  </details>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    iframe,
+    video,
+    canvas {
+      border: solid;
+    }
+  </style>
+</head>
+
+<body>
+  <iframe src="" frameborder="0"></iframe>
+  <video src=""></video>
+  <canvas></canvas>
+  <audio src="" controls></audio>
+  <hr>
+  <img src="" alt="">
+  <img style="width: 100px; height: 20px;">
+  <input type="radio">
+  <input type="checkbox">
+  <select name="" id="">
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select>
+  <button>Button</button>
+  <input type="text">
+  <textarea name="" id="" cols="20" rows="5"></textarea>
+
+  <hr>
+  <h4>典型的可替换元素</h4>
+  <ul>
+    <li>iframe</li>
+    <li>video</li>
+    <li>embed</li>
+    <li>img</li>
+  </ul>
+
+  <h4>有些元素仅在特定情况下被作为可替换元素处理，例如：</h4>
+  <ul>
+    <li>option</li>
+    <li>audio</li>
+    <li>canvas</li>
+    <li>object</li>
+    <li>applet</li>
+  </ul>
+  <p>
+    HTML 规范也说了 &lt;input&gt; 元素可替换，因为 "image" 类型的 &lt;input&gt; 元素就像&lt;img&gt;一样被替换。但是其他形式的控制元素，包括其他类型的 &lt;input&gt; 元素，被明确地列为非可替换元素（non-replaced elements）。该规范用术语小挂件（Widgets）来描述它们默认的限定平台的渲染行为。
+  </p>
+  <p style="margin-bottom: 300px;">
+    <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element#%E5%8F%AF%E6%9B%BF%E6%8D%A2%E5%85%83%E7%B4%A0">
+      https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element
+    </a>
+  </p>
+</body>
+
+</html>

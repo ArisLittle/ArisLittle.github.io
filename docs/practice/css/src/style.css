@@ -1,0 +1,16 @@
+summary {
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+}
+
+table,
+td,
+th {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 0 12px;
+}

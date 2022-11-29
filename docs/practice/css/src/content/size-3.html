@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="margin-bottom: 300px;">
+  <p>固有尺寸</p>
+  <img src="../card.jpg" alt="card">
+  <hr>
+  <p>HTML尺寸</p>
+  <img src="../card.jpg" alt="card" width="200" height="128">
+  <hr>
+  <p>CSS尺寸</p>
+  <style>
+    .my-card {
+      width: 100px;
+      height: 64px;
+    }
+    .my-card-1 {
+      width: 100px;
+    }
+    .my-card-2 {
+      width: 100px;
+    }
+  </style>
+  <img class="my-card" src="../card.jpg" alt="card" width="200" height="128">
+  宽高同时设置
+  <hr>
+  <img class="my-card-1" src="../card.jpg" alt="card" width="200" height="128">
+  只设置一个CSS尺寸，另一个用HTML尺寸
+  <hr>
+  <img class="my-card-2" src="../card.jpg" alt="card">
+  只设置一个CSS尺寸，另一个空余
+</body>
+</html>

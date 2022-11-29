@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <details>
+    <summary>> 选择直接子元素</summary>
+    <style>
+      .parent>div {
+        border: 1px solid orange;
+      }
+    </style>
+    <div class="parent">
+      <div>
+        直接的孩子
+        <div class="inner">孩子的孩子</div>
+      </div>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>~ 匹配后面的兄弟</summary>
+    <style>
+      .good~li {
+        color: skyblue;
+      }
+    </style>
+    <ol>
+      <li>Demo</li>
+      <li>Demo</li>
+      <li class="good">Demo</li>
+      <li>Demo</li>
+      <li>Demo</li>
+    </ol>
+  </details>
+
+  <hr>
+  <details>
+    <summary>+ 匹配后面紧挨着的一个兄弟</summary>
+    <style>
+      .bad+li {
+        color: orange;
+      }
+    </style>
+    <ol>
+      <li>Demo</li>
+      <li>Demo</li>
+      <li class="bad">Demo</li>
+      <li>Demo</li>
+      <li>Demo</li>
+    </ol>
+  </details>
+</body>
+
+</html>

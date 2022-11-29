@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <style id="demo">
+    /* .nth-child-table > tr:nth-child(2n+1) {background:orange;} */
+  </style>
+</head>
+
+<body>
+  <details>
+    <summary>替换元素大都有自己的尺寸</summary>
+    <style>
+      .demo-1 iframe,
+      .demo-1 video,
+      .demo-1 canvas {
+        border: solid;
+      }
+    </style>
+    <div class="demo-1">
+      <iframe src="" frameborder="0"></iframe>
+      <video src=""></video>
+      <canvas></canvas>
+      <audio src="" controls></audio>
+      <hr>
+      <img src="" alt="">
+      <img style="width: 100px; height: 20px;">
+      <input type="radio">
+      <input type="checkbox">
+      <select name="" id="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+      <button>Button</button>
+      <input type="text">
+      <textarea name="" id="" cols="20" rows="5"></textarea>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>替换元素的尺寸表现</summary>
+    <style>
+      .display-block {
+        display: block;
+        background: orange;
+        margin: 10px 0;
+      }
+    </style>
+    <div>display: block，但是没有流动占满宽度</div>
+    <hr>
+    input
+    <input type="text" class="display-block">
+    <hr>
+    button
+    <button class="display-block">Button</button>
+    <hr>
+
+    img
+    <img class="display-block" src="../card.jpg" alt="card">
+
+    <hr>
+    对比普通的span, i, a
+    <span class="display-block">span</span>
+    <a class="display-block">a</a>
+    <i class="display-block">i</i>
+  </details>
+
+  <hr>
+  <details>
+    <summary>替换元素的固有尺寸、HTML尺寸、CSS尺寸</summary>
+    <p>固有尺寸</p>
+    <img src="../card.jpg" alt="card">
+    <hr>
+    <p>HTML尺寸</p>
+    <img src="../card.jpg" alt="card" width="200" height="128">
+    <hr>
+    <p>CSS尺寸</p>
+    <style>
+      .my-card {
+        width: 100px;
+        height: 64px;
+      }
+
+      .my-card-1 {
+        width: 100px;
+      }
+
+      .my-card-2 {
+        width: 100px;
+      }
+    </style>
+    <img class="my-card" src="../card.jpg" alt="card" width="200" height="128">
+    宽高同时设置
+    <hr>
+    <img class="my-card-1" src="../card.jpg" alt="card" width="200" height="128">
+    只设置一个CSS尺寸，另一个用HTML尺寸
+    <hr>
+    <img class="my-card-2" src="../card.jpg" alt="card">
+    只设置一个CSS尺寸，另一个空余
+  </details>
+
+
+</body>
+
+</html>

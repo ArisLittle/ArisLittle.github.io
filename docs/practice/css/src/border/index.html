@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  <style id="demo">
+    /* .nth-child-table > tr:nth-child(2n+1) {background:orange;} */
+  </style>
+</head>
+
+<body>
+  <details>
+    <summary>border-width</summary>
+    <p>关键字</p>
+    <ul>
+      <li>thin: ? </li>
+      <li><strong>medium: 3px（默认值）</strong></li>
+      <li>thick: ? </li>
+    </ul>
+    <p>规范并没有规定关键字的实际值故在不同浏览器效果是不一样的，但显然 thin≤medium≤thick，并且值在单个文档中是恒定的。</p>
+
+    <div style="width: 50px; height: 30px; border-style: solid;"></div>
+    <br>
+    <div style="width: 50px; height: 30px; border-style: double;"></div>
+
+    <p>border-width 不支持百分比？但支持相对字体的比例值？</p>
+
+    <p style="border-style: dotted; border-width: 0.2em;">Demo: border-width: 0.2em</p>
+    <p style="border-style: dotted;">Demo: border-width: 3px</p>
+  </details>
+
+  <hr>
+
+  <details>
+    <summary>border-style</summary>
+    <ul>
+      <li><strong>none（默认值）</strong></li>
+      <li>solid</li>
+      <li>double</li>
+      <li>dotted</li>
+      <li>dashed</li>
+    </ul>
+    <style>
+      .border-style-box {
+        width: 180px;
+        height: 80px;
+        border-width: 10px;
+      }
+    </style>
+    <div class="border-style-box" style="border-style: dotted">border-style: dotted</div>
+    <br>
+    <div class="border-style-box" style="border-style: dashed">border-style: dashed</div>
+    <br>
+    <div class="border-style-box" style="border-style: double">border-style: double</div>
+  </details>
+
+  <hr>
+
+  <details>
+    <summary>border-color</summary>
+    <p>默认值是color的颜色。</p>
+    <style>
+      .border-color-box {
+        padding: 8px;
+        border-style: solid;
+      }
+
+      .border-color-box:hover {
+        color: orange;
+      }
+    </style>
+    <span class="border-color-box">Demo</span>
+
+    <p>可以是透明色：通常用于增加border而又不改变容器大小的情况。</p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>border 三角</summary>
+    <style>
+      .border-img {
+        width: 50px;
+        height: 50px;
+        border-width: 30px;
+        border-style: solid;
+        border-color: #000;
+        border-top-color: red;
+        border-right-color: green;
+        border-bottom-color: blue;
+        border-left-color: orange;
+      }
+    </style>
+    <div class="border-img"></div>
+
+  </details>
+
+  <hr>
+  <details>
+    <summary>其他</summary>
+    <ul>
+      <li>border-radius</li>
+      <li>border-image</li>
+      <li>border-collapse</li>
+      <li>...</li>
+    </ul>
+  </details>
+
+</body>
+
+</html>

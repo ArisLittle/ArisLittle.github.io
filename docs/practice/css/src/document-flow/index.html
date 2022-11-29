@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <details>
+    <summary>常规流</summary>
+    <p>普通元素都属于常规流，按照源代码中的顺序渲染到页面中。</p>
+    <style>
+      .normal-flow-box>* {
+        border: 1px solid green;
+      }
+    </style>
+    <div class="normal-flow-box">
+      <h1>A heading</h1>
+      <p>One November night in the year 1782, so the story runs, two brothers sat over their winter fire in the little
+        French town of Annonay, watching the grey smoke-wreaths from the hearth curl up the wide chimney.</p>
+
+      <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+      </ul>
+      <p>Their names were <strong>Stephen and Joseph Montgolfier</strong>, they were papermakers by trade, and were
+        noted as possessing thoughtful minds and a deep interest in all scientific knowledge and new discovery.</p>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>脱离常规流</summary>
+    <p>下列元素会脱离常规流：</p>
+    <ul>
+      <li>浮动的元素</li>
+      <li>position: absolute 或 fixed</li>
+      <li>根元素 （html）</li>
+    </ul>
+
+    <p style="width: 690px">脱离常规流的元素会创建一个新的块级格式化上下文（Block Formatting Context:
+      BFC）环境，其中包含的所有元素构成了一个小的布局环境，与页面中的其他内容分隔开来。而根元素，作为页面中所有内容的容器，自身脱离常规流，为整个文档创建了一个块级格式化上下文环境。</p>
+
+    <p>参考 <a
+        href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow</a>
+    </p>
+  </details>
+
+  <hr>
+
+  <details>
+    <summary>Demo-1 浮动脱离常规流</summary>
+    <style>
+      .float-flow {
+        /* float: left; */
+        /* padding: 5px; */
+        /* margin: 5px; */
+        box-shadow: 0 0 2px 2px orange;
+      }
+    </style>
+    <p>
+      观自在菩萨，行深般若波罗蜜多时，照见五蕴皆空，度一切苦厄。舍利子，色不异空，空不异色，色即是空，空即是色，受想行识，亦复如是。舍利子，是诸法空相，不生不灭，不垢不净，不增不减。是故空中无色，无受想行识，无眼耳鼻舌身意，无色声香味触法，无眼界，乃至无意识界，无无明，亦无无明尽，乃至无老死，亦无老死尽。无苦集灭道，无智亦无得。以无所得故。菩提萨埵，依般若波罗蜜多故，<span
+        class="float-flow">心无挂碍</span>。无挂碍故，无有恐怖，远离颠倒梦想，究竟涅盘。三世诸佛，依般若波罗蜜多故，得阿耨多罗三藐三菩提。故知般若波罗蜜多，是大神咒，是大明咒，是无上咒，是无等等咒，能除一切苦，真实不虚。故说般若波罗蜜多咒，即说咒曰：揭谛揭谛，波罗揭谛，波罗僧揭谛，菩提萨婆诃。
+    </p>
+  </details>
+
+  <hr>
+  <details>
+    <summary>Demo-2: absolute脱离常规流</summary>
+    <style>
+      .absolute-flow {
+        position: relative;
+      }
+
+      .absolute-flow p {
+        width: 450px;
+        border: 2px solid green;
+      }
+
+      .abspos {
+        /* position: absolute; */
+        background-color: green;
+        color: #fff;
+        top: 30px;
+        right: 30px;
+      }
+    </style>
+    <div class="absolute-flow">
+      <p>孙子曰：兵者，国之大事，死生之地，存亡之道，不可不察也。</p>
+      <p class="abspos">孙子曰：昔之善战者，先为不可胜，以待敌之可胜。不可胜在己，可胜在敌。故善战者，能为不可胜，不能使敌之可胜。故曰：胜可知，而不可为。</p>
+      <p>孙子曰：夫用兵之法，全国为上，破国次之，全军为上，破军次之；全旅为上，破旅次之；全卒为上，破卒次之；全伍为上，破伍次之。是故百战百胜，非善之善者也；不战而屈人之兵，善之善者也。
+
+        故上兵伐谋，其次伐交，其次伐兵，其下攻城。攻城之法为不得已。修橹轒辒，具器械，三月而后成，距堙，又三月而后已。将不胜其忿而蚁附之，杀士三分之一而城不拔者，此攻之灾也。
+
+        故善用兵者，屈人之兵而非战也，拔人之城而非攻也，毁人之国而非久也，必以全争于天下。故兵不顿而利可全，此谋攻之法也。</p>
+    </div>
+  </details>
+
+  <hr>
+  <details>
+    <summary>参考</summary>
+    <p><a
+        href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow</a>
+    </p>
+  </details>
+
+</body>
+
+</html>
