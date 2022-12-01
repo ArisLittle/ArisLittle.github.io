@@ -1,0 +1,29 @@
+{
+  "name": "arislittle.github.io",
+  "version": "0.0.0",
+  "description": "my missing pages",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArisLittle/ArisLittle.github.io.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "zgl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArisLittle/ArisLittle.github.io/issues"
+  },
+  "homepage": "https://github.com/ArisLittle/ArisLittle.github.io#readme",
+  "devDependencies": {
+    "vite": "^3.2.4"
+  }
+}
