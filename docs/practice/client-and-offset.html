@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 1px solid;
+      width: 400px;
+      height: 400px;
+      margin: 20px;
+    }
+    .box {
+      height: 50px;
+      width: 50px;
+      background: orange;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="box" class="box"></div>
+  </div>
+  <script>
+    const box = document.getElementById('box')
+    const minLeft = 0
+    const minTop = 0
+    const maxLeft = document.body.clientWidth - box.clientWidth
+    box.addEventListener('mousedown', (ev) => {
+      let x = ev.pageX
+      let y = ev.pageY
+      let oldTop = parseFloat(window.getComputedStyle(box).top)
+      let oldLeft = parseFloat(window.getComputedStyle(box).left)
+      const moving = function (ev) {
+        const diffX = ev.pageX - x
+        const diffY = ev.pageY - y
+        const top = Math.max(0, oldTop + diffY)
+        const left = Math.max(0, oldLeft + diffX)
+        box.style = `top:${top}px;left:${left}px`
+      }
+      document.addEventListener('mousemove', moving)
+      document.addEventListener('mouseup', () => {
+        console.log('finished')
+        document.removeEventListener('mousemove', moving)
+      })
+    })
+  </script>
+</body>
+</html>
