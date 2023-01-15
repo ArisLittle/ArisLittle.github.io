@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 50px;
+      height: 50px;
+    }
+
+    .orange {
+      background: orange;
+    }
+
+    .choice .box {
+      margin-left: 10px;
+    }
+
+    section {
+      position: relative;
+      border: 1px solid;
+      height: 300px;
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p id="msg">可以拖放上面的图块</p>
+    <hr>
+    <section>
+      <div id="box" class="box orange" draggable="false" alt="orange"></div>
+    </section>
+  </div>
+  <script>
+    const msg = document.getElementById('msg')
+    const box = document.getElementById('box')
+
+    box.addEventListener('mousedown', (e) => {
+      console.log(e.offsetX)
+      console.log('mouse down')
+      function moving (ev) {
+        console.log(ev)
+      }
+
+      box.addEventListener('mousemove', moving)
+      box.addEventListener('mouseup', () => {
+        box.removeEventListener('mousemove', moving)
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .choice {
+      display: flex;
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+    }
+
+    .blue {
+      background: blue;
+    }
+
+    .yellow {
+      background: yellow;
+    }
+
+    .red {
+      background: red;
+    }
+
+    .green {
+      background: green;
+    }
+
+    .orange {
+      background: orange;
+    }
+
+    .choice .box {
+      margin-left: 10px;
+    }
+
+    section {
+      position: relative;
+      border: 1px solid;
+      height: 300px;
+      width: 300px;
+    }
+
+    p {
+      text-align: center
+    }
+
+    .empty {
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: gray;
+      border: 1px dashed;
+      border-color: transparent;
+      transition: border-color, box-shadow .2s;
+    }
+
+    .empty.border {
+      border-color: currentColor;
+    }
+
+    .empty.glow,
+    .box.glow {
+      border-color: transparent;
+      box-shadow: 0 0 2px 2px skyblue
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="choice">
+      <div class="box red" draggable="true" alt="red"></div>
+      <div class="box orange" draggable="true" alt="orange"></div>
+      <div class="box yellow" draggable="true" alt="yellow"></div>
+      <div class="box green" draggable="true" alt="green"></div>
+      <div class="box blue" draggable="true" alt="blue"></div>
+    </div>
+    <hr>
+    <section>
+      <p id="msg">可以拖放上面的图块</p>
+      <div id="empty" class="empty"></div>
+    </section>
+  </div>
+  <script>
+    const msg = document.getElementById('msg')
+    const empty = document.getElementById('empty')
+    const info = '可以拖放上面的图块'
+    document.addEventListener('dragstart', (e) => {
+      if (e.target.nodeName !== 'DIV' || !e.target.className.includes('box')) {
+        return
+      }
+      msg.innerText = e.target.getAttribute('alt')
+      empty.classList.add('border')
+      e.target.classList.add('glow')
+      console.log('dragstart')
+    })
+    document.addEventListener('dragend', (e) => {
+      console.log('dragend')
+      msg.innerText = info
+      empty.classList.remove('border')
+      e.target.classList.remove('glow')
+    })
+    empty.addEventListener('dragenter', (e) => {
+      console.log('dragenter')
+      e.target.classList.add('glow')
+    })
+    empty.addEventListener('dragleave', (e) => {
+      console.log('dragleave')
+      e.target.classList.remove('glow')
+    })
+    empty.addEventListener('dragover', (e) => {
+      e.preventDefault()
+    })
+    empty.addEventListener('drop', (e) => {
+      e.preventDefault()
+      const newNode = document.querySelector(`.box[alt=${msg.innerText}]`)
+      while (empty.firstChild) {
+        empty.removeChild(empty.firstChild)
+      }
+      newNode.classList.remove('glow')
+      empty.append(newNode)
+      // empty.append(newNode.cloneNode())
+    })
+  </script>
+</body>
+
+</html>
