@@ -108,11 +108,15 @@
     function setImgSrcByFileReader(img, file) {
       const reader = new FileReader()
       reader.onload = ev => {
-        console.log('ev.target.result', ev.target.result)
         img.src = ev.target.result
       }
       reader.readAsDataURL(file)
     }
+
+    window.addEventListener('paste', (ev) => {
+      console.log(ev.clipboardData.files)
+      handleFiles(ev.clipboardData.files)
+    })
 
   </script>
 </body>
