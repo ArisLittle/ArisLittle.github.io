@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选择图片，并展示缩略图</title>
+  <style>
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+    }
+
+    input.visually-hidden+label {
+      cursor: pointer;
+    }
+
+    input.visually-hidden+label:hover {
+      color: blue;
+    }
+
+    input.visually-hidden:is(:focus, :focus-within)+label {
+      outline: thin dotted;
+    }
+
+    .container {
+      padding: 0 20px;
+      min-height: 200px;
+      border: 1px solid;
+    }
+
+    .container img {
+      width: 100px;
+      height: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="file" id="file-input" class="visually-hidden" multiple>
+  <label for="file-input">请选择文件</label>
+
+  <hr>
+
+  <div id="container" class="container"></div>
+
+  <script>
+    const type = 'fileReader'
+    const fileInput = document.getElementById('file-input')
+    const container = document.getElementById('container')
+    fileInput.addEventListener('change', (ev) => {
+      handleFiles(ev.target.files)
+    })
+
+    container.addEventListener("dragenter", (ev) => {
+      ev.stopPropagation()
+      ev.preventDefault()
+    }, false);
+    container.addEventListener("dragover", (ev) => {
+      ev.stopPropagation()
+      ev.preventDefault()
+    }, false);
+
+    container.addEventListener('drop', (ev) => {
+      ev.stopPropagation()
+      ev.preventDefault()
+
+      console.log(ev.dataTransfer)
+      handleFiles(ev.dataTransfer.files)
+    }, false)
+
+    function handleFiles(files) {
+      if (!files.length) {
+        container.innerHTML = '<p>未选择任何文件</p>'
+        return
+      }
+      container.innerHTML = `<p>选择了${files.length}个文件</p>`
+      const ul = document.createElement('ul')
+      for (const file of files) {
+        const li = document.createElement('li')
+        const span = document.createElement('span')
+        if (file.type.startsWith('image/')) {
+          const img = document.createElement('img')
+          if (type === 'fileReader') {
+            setImgSrcByFileReader(img, file)
+          } else {
+            setImgSrcByCreateObjectURL(img, file)
+          }
+          li.appendChild(img)
+          span.innerText = `${file.name} ${file.size} (bytes)`
+        } else {
+          span.innerText = `非图片 ${file.name} ${file.size} (bytes)`
+        }
+        li.appendChild(span)
+        ul.appendChild(li)
+      }
+      container.appendChild(ul)
+    }
+
+    function setImgSrcByCreateObjectURL(img, file) {
+      img.src = URL.createObjectURL(file)
+    }
+
+    function setImgSrcByFileReader(img, file) {
+      const reader = new FileReader()
+      reader.onload = ev => {
+        console.log('ev.target.result', ev.target.result)
+        img.src = ev.target.result
+      }
+      reader.readAsDataURL(file)
+    }
+
+  </script>
+</body>
+
+</html>
