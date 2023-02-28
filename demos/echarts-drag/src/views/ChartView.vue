@@ -9,6 +9,11 @@
       @drop="chooseChart"
       @dragover="onDragOver"
       @dragenter="onDragEnter">
+      <div class="chart-view__body__mask" :class="{grid: showGrid}">
+        <ul v-for="rowIndex in Number(row)" :key="rowIndex" class="mask-row">
+          <li v-for="columnIndex in Number(column)" :key="columnIndex" class="mask-column mask-item"></li>
+        </ul>
+      </div>
       <div>{{ selectedBox }}</div>
     </div>
     <el-drawer
@@ -20,6 +25,18 @@
       :modal="false"
       direction="rtl"
       :before-close="handleClose">
+      <p>
+        <label for="row">
+          行
+          <input id="row" v-model="row"></input>
+        </label>
+      </p>
+      <p>
+        <label for="row">
+          列
+          <input id="row" v-model="column"></input>
+        </label>
+      </p>
       <ul class="chart-box" @dragstart="onDragStart">
         <li class="chart-box__item red" draggable="true">red</li>
         <li class="chart-box__item blue" draggable="true">blue</li>
@@ -36,6 +53,8 @@ const bodyRef = ref(null)
 const drawerRef = ref(null)
 const selectedBox = ref('请选择')
 const showGrid = ref(false)
+const row = ref(3)
+const column = ref(3)
 
 function handleClose (done) {
   done()
@@ -93,10 +112,46 @@ function showDrawerAfterDrag () {
   flex-direction: column;
 }
 .chart-view__body {
+  position: relative;
   flex-grow: 1;
-  border: 1px solid;
+  // border: 1px solid;
+  // &.grid {
+  //   background: orange;
+  // }
+}
+.chart-view__body__mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .mask-row {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    transition: border-color .2s;
+  }
+  .mask-column {
+    flex-grow: 1;
+    transition: border-color .2s;
+  }
+  .mask-item {
+    border-left: 1px dashed transparent;
+    border-bottom: 1px dashed transparent;
+  }
+  .mask-row:first-child {
+    border-top: 1px dashed transparent;
+  }
+  .mask-column:last-child {
+    border-right: 1px dashed transparent;
+  }
   &.grid {
-    background: orange;
+    .mask-row, .mask-column {
+      border-color: orange;
+    }
   }
 }
 .chart-box__item {
